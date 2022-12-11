@@ -2,7 +2,8 @@ package com.app.picnic;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
 
@@ -17,8 +18,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        vm_weather = new ViewModelProvider(this).get(WeatherViewModel.class);
+
         ActivityMainBinding binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
-        vm_weather = ViewModelProviders
+        binding.setVm(vm_weather);
+        binding.setLifecycleOwner(this);
+
+//        vm_weather.mlds_name.observe(this, new Observer<String>() {
+//            @Override
+//            public void onChanged(String s) {
+//
+//            }
+//        });
+
 
 //        binding.btRun.setOnClickListener(new View.OnClickListener() {
 //            @Override

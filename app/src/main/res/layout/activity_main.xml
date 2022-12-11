@@ -24,13 +24,14 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="@{vm.mlds_name}"
             />
 
         <Button
             android:id="@+id/bt_run"
             android:layout_width="30dp"
             android:layout_height="30dp"
+            android:onClick="@{()->vm.get_name()}"
             android:text="run"
             />
 
