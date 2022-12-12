@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-        <variable
-            name="vm"
-            type="com.app.picnic.viewmodels.WeatherViewModel" />
 
     </data>
 
@@ -16,27 +13,21 @@
         tools:context=".MainActivity"
         android:layout_gravity="center">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/tv_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@{vm.mlds_name}"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/bt_run"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:onClick="@{()->vm.get_name()}"
-            android:text="run"
-            />
+            <Button
+                android:id="@+id/bt_run"
+                android:layout_width="300dp"
+                android:layout_height="300dp"
+                android:text="main"
+                android:background="@color/black"
+                android:textColor="@color/black"
+                />
 
-    </LinearLayout>
-
+        </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
