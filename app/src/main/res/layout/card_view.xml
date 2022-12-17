@@ -19,7 +19,7 @@
 
         <Button
             android:id="@+id/go"
-            android:layout_width="100dp"
+            android:layout_width="100"
             android:layout_height="100dp" />
     </LinearLayout>
 

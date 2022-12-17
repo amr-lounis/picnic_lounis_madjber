@@ -49,14 +49,14 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.RecycHeo
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(context,"hhhh "+getOldPosition(),Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context,"Clicked to card ",Toast.LENGTH_SHORT).show();
                 }
             });
             Button b = itemView.findViewById(R.id.go);
             b.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(context, MainActivity.class);
+                    Intent i = new Intent(context, PlanActivity.class);
                     context.startActivity(i);
                 }
             });
