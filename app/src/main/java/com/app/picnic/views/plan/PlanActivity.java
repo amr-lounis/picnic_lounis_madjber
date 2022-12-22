@@ -1,4 +1,4 @@
-package com.app.picnic.views;
+package com.app.picnic.views.plan;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import com.app.picnic.R;
 import com.app.picnic.databinding.ActivityPlanBinding;
-import com.app.picnic.databinding.ActivityWeatherBinding;
 
 public class PlanActivity extends AppCompatActivity {
 

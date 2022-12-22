@@ -1,4 +1,4 @@
-package com.app.picnic;
+package com.app.picnic.views.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -8,8 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.app.picnic.R;
 import com.app.picnic.databinding.ActivityMainBinding;
-import com.app.picnic.views.WeatherActivity;
+import com.app.picnic.views.weather.WeatherActivity;
 
 public class MainActivity extends AppCompatActivity {
 

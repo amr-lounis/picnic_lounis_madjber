@@ -6,13 +6,13 @@
     <data>
         <variable
             name="vm"
-            type="com.app.picnic.viewmodels.WeatherViewModel" />
+            type="com.app.picnic.views.weather.WeatherViewModel" />
     </data>
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".views.WeatherActivity"
+        tools:context=".views.weather.WeatherActivity"
         android:orientation="vertical"
         tools:ignore="Deprecated">
 

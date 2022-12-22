@@ -1,4 +1,4 @@
-package com.app.picnic.viewmodels;
+package com.app.picnic.views.weather;
 import android.app.Application;
 import android.content.Context;
 import android.util.Log;
@@ -57,7 +57,4 @@ public class WeatherViewModel extends ViewModel {
         });
         VolleySingleton.getInstance(context).addToRequestQueue(jsonArrayRequest);
     }
-
-
-
 }

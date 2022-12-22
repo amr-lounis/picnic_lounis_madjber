@@ -1,4 +1,4 @@
-package com.app.picnic.views;
+package com.app.picnic.views.weather;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -11,8 +11,6 @@ import android.widget.Toast;
 import com.app.picnic.R;
 import com.app.picnic.databinding.ActivityWeatherBinding;
 import com.app.picnic.models.model_weather;
-import com.app.picnic.repo.RepoWeathers;
-import com.app.picnic.viewmodels.WeatherViewModel;
 
 import java.util.List;
 
@@ -35,16 +33,12 @@ public class WeatherActivity extends AppCompatActivity {
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));
         binding.setLifecycleOwner(this);
         //-----------------------------------------------------------------------------------------
-//        for(int i = 0;i<10;i++){
-//            recycleAdapter.addWeather(new model_weather(1,"00"+i,1.,1.,1.,1.));
-//        }
         vm_weather.listMutableLiveData.observe(this, new Observer<List<model_weather>>() {
             @Override
             public void onChanged(List<model_weather> model_weathers) {
                 weatherRecycleAdapter.setWeathers(model_weathers);
             }
         });
-
         //-----------------------------------------------------------------------------------------
         binding.btRun.setOnClickListener(new View.OnClickListener() {
             @Override

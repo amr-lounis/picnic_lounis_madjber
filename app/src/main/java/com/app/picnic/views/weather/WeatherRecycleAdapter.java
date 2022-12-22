@@ -1,4 +1,4 @@
-package com.app.picnic.views;
+package com.app.picnic.views.weather;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.picnic.R;
 import com.app.picnic.models.model_weather;
+import com.app.picnic.views.plan.PlanActivity;
 
 import java.util.ArrayList;
 import java.util.List;
