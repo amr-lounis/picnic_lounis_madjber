@@ -2,39 +2,37 @@ package com.app.picnic.views;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import com.app.picnic.MainActivity;
 import com.app.picnic.R;
 import com.app.picnic.models.model_weather;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.RecycHeolder> {
-    public ArrayList<model_weather> weathers = new ArrayList<>();
+public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAdapter.RecycHeolder> {
+    List<model_weather> list_model_weather = new ArrayList<>();
+
     @NonNull
     @Override
     public RecycHeolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new RecycHeolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view,parent,false));
     }
-
+    //---------------------------------------------------------------------------------------------
     @Override
     public void onBindViewHolder(@NonNull RecycHeolder holder, int position) {
-        holder.tv_name.setText(weathers.get(position).getWeather());
+        holder.tv_name.setText(list_model_weather.get(position).getWeather());
     }
-
+    //---------------------------------------------------------------------------------------------
     @Override
     public int getItemCount() {
-        return weathers.size();
+        return list_model_weather.size();
     }
 
     public class RecycHeolder extends RecyclerView.ViewHolder {
@@ -63,8 +61,12 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecycleAdapter.RecycHeo
         }
     }
 
+    public void setWeathers(List<model_weather> _weathers){
+        list_model_weather = _weathers;
+        notifyDataSetChanged();
+    }
     public void addWeather(model_weather _weather){
-        this.weathers.add(_weather);
+        list_model_weather.add(_weather);
         notifyDataSetChanged();
     }
 }

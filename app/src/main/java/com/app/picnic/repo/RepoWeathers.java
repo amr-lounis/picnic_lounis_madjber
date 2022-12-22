@@ -1,11 +1,10 @@
-package com.app.picnic.viewmodels;
-import android.app.Application;
+package com.app.picnic.repo;
+
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
 import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -21,7 +20,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherViewModel extends ViewModel {
+public class RepoWeathers {
     public MutableLiveData<List<model_weather>> listMutableLiveData = new MutableLiveData<>();
 
     public void get_weathet(Context context){
@@ -29,23 +28,23 @@ public class WeatherViewModel extends ViewModel {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                Toast.makeText(context,"responce ok",Toast.LENGTH_LONG).show();
-                List<model_weather> model_weatherList = new ArrayList<>();
-                try {
-                    for(int i = 0;i< response.length();i++) {
-                        JSONObject jsonObject = response.getJSONObject(i);
-                        int id = jsonObject.getInt("id");
-                        String weather = jsonObject.getString("weather");
-                        Double temp = jsonObject.getDouble("temp");
-                        Double wind = jsonObject.getDouble("wind");
-                        Double visibility = jsonObject.getDouble("visibility");
-                        Double snow = jsonObject.getDouble("snow");
+                  Toast.makeText(context,"responce ok",Toast.LENGTH_LONG).show();
+                  List<model_weather> model_weatherList = new ArrayList<>();
+                  try {
+                      for(int i = 0;i< response.length();i++) {
+                          JSONObject jsonObject = response.getJSONObject(i);
+                          int id = jsonObject.getInt("id");
+                          String weather = jsonObject.getString("weather");
+                          Double temp = jsonObject.getDouble("temp");
+                          Double wind = jsonObject.getDouble("wind");
+                          Double visibility = jsonObject.getDouble("visibility");
+                          Double snow = jsonObject.getDouble("snow");
 
-                        model_weatherList.add(new model_weather(id, weather, temp, wind, visibility, snow));
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                          model_weatherList.add(new model_weather(id, weather, temp, wind, visibility, snow));
+                      }
+                  } catch (JSONException e) {
+                      e.printStackTrace();
+                  }
                 listMutableLiveData.setValue(model_weatherList);
             }
         }, new Response.ErrorListener() {
@@ -57,7 +56,4 @@ public class WeatherViewModel extends ViewModel {
         });
         VolleySingleton.getInstance(context).addToRequestQueue(jsonArrayRequest);
     }
-
-
-
 }
