@@ -14,7 +14,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Picnic_lounis_madjber"
         tools:targetApi="31">
-
+        <activity
+            android:name=".views.plan.PlanEditActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".views.weather.WeatherActivity"
             android:exported="false">

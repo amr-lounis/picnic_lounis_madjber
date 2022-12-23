@@ -20,11 +20,11 @@ public class WeatherActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_weather);
 
         ActivityWeatherBinding binding= DataBindingUtil.setContentView(this,R.layout.activity_weather);
-
         WeatherViewModel vm_weather = new ViewModelProvider(this).get(WeatherViewModel.class);
+
+
         binding.setVm(vm_weather);
         binding.setLifecycleOwner(this);
 
@@ -32,6 +32,7 @@ public class WeatherActivity extends AppCompatActivity {
         binding.recycler.setAdapter(weatherRecycleAdapter);
         binding.recycler.setLayoutManager(new LinearLayoutManager(this));
         binding.setLifecycleOwner(this);
+
         //-----------------------------------------------------------------------------------------
         vm_weather.listMutableLiveData.observe(this, new Observer<List<model_weather>>() {
             @Override
@@ -48,5 +49,6 @@ public class WeatherActivity extends AppCompatActivity {
             }
         });
         //-----------------------------------------------------------------------------------------
+
     }
 }

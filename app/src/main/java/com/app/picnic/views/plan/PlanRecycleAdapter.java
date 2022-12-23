@@ -1,4 +1,4 @@
-package com.app.picnic.views.weather;
+package com.app.picnic.views.plan;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,33 +8,34 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.app.picnic.R;
+import com.app.picnic.models.model_picnic;
 import com.app.picnic.models.model_weather;
-import com.app.picnic.views.plan.PlanActivity;
-import com.app.picnic.views.plan.PlanEditActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAdapter.RecycHeolder> {
-    List<model_weather> list_model_weather = new ArrayList<>();
+public class PlanRecycleAdapter extends RecyclerView.Adapter<PlanRecycleAdapter.RecycHeolder> {
+    List<model_picnic> list_model_plan = new ArrayList<>();
 
     @NonNull
     @Override
-    public RecycHeolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new RecycHeolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_weather,parent,false));
+    public PlanRecycleAdapter.RecycHeolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new PlanRecycleAdapter.RecycHeolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.card_plan,parent,false));
     }
     //---------------------------------------------------------------------------------------------
     @Override
-    public void onBindViewHolder(@NonNull RecycHeolder holder, int position) {
-        holder.tv_name.setText(list_model_weather.get(position).getWeather());
+    public void onBindViewHolder(@NonNull PlanRecycleAdapter.RecycHeolder holder, int position) {
+        holder.tv_name.setText(list_model_plan.get(position).getDestination());
     }
     //---------------------------------------------------------------------------------------------
     @Override
     public int getItemCount() {
-        return list_model_weather.size();
+        return list_model_plan.size();
     }
 
     public class RecycHeolder extends RecyclerView.ViewHolder {
@@ -63,12 +64,12 @@ public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAd
         }
     }
 
-    public void setWeathers(List<model_weather> _weathers){
-        list_model_weather = _weathers;
+    public void setPicnics(List<model_picnic> _picnics){
+        list_model_plan = _picnics;
         notifyDataSetChanged();
     }
-    public void addWeather(model_weather _weather){
-        list_model_weather.add(_weather);
+    public void addPicnic(model_picnic _picnic){
+        list_model_plan.add(_picnic);
         notifyDataSetChanged();
     }
 }
