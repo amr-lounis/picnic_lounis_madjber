@@ -44,7 +44,6 @@ public class RepoWeather {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, this.url, null, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
-                Toast.makeText(application,"responce ok",Toast.LENGTH_LONG).show();
                 List<model_weather> model_weatherList = new ArrayList<>();
                 try {
                     for(int i = 0;i< response.length();i++) {
@@ -52,14 +51,14 @@ public class RepoWeather {
                         int id = jsonObject.getInt("id");
                         String weather = jsonObject.getString("weather");
                         Double temp = jsonObject.getDouble("temp");
-                        String icon = jsonObject.getString("icon");
 
-                        model_weatherList.add(new model_weather(id, weather, temp,icon));
+                        model_weatherList.add(new model_weather(id, weather, temp));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
                 mld_weathers.setValue(model_weatherList);
+                Toast.makeText(application,"responce ok size : "+model_weatherList.size(),Toast.LENGTH_LONG).show();
             }
         }, new Response.ErrorListener() {
             @Override

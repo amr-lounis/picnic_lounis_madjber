@@ -2,11 +2,9 @@ package com.app.picnic.views.weather;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -14,14 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.picnic.R;
 import com.app.picnic.models.model_weather;
-import com.app.picnic.views.plan.PlanActivity;
 import com.app.picnic.views.plan.PlanEditActivity;
-import com.squareup.picasso.NetworkPolicy;
-import com.squareup.picasso.Picasso;
-
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,13 +27,20 @@ public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAd
     //---------------------------------------------------------------------------------------------
     @Override
     public void onBindViewHolder(@NonNull RecycHeolder holder, int position) {
-        holder.tv_weather.setText(list_model_weather.get(position).getWeather());
-        holder.tv_temp.setText("temp : "+list_model_weather.get(position).getTemp()+"°");
-        holder.tv_id.setText("day : "+list_model_weather.get(position).getId()+"°");
+        String weather = list_model_weather.get(position).getWeather();
+        String temp = "temp : "+list_model_weather.get(position).getTemp()+"°";
+        String day = "day : "+list_model_weather.get(position).getId()+"°";
 
-        Picasso.get().
-                load(list_model_weather.get(position).getIcon()).
-                into(holder.iv_image);
+        holder.tv_weather.setText(weather);
+        holder.tv_temp.setText(temp);
+        holder.tv_id.setText(day);
+
+        int src =  R.drawable.sun;
+        if(weather.equals("sun"))src = R.drawable.sun;
+        if(weather.equals("cloud_sun"))src = R.drawable.cloud_sun;
+        if(weather.equals("rain"))src = R.drawable.rain;
+        if(weather.equals("snowing"))src = R.drawable.snowing;
+        holder.iv_image.setImageResource(src);
     }
     //---------------------------------------------------------------------------------------------
     @Override

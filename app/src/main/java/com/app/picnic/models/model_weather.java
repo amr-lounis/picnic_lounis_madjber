@@ -4,21 +4,11 @@ public class model_weather {
     private  int    id;
     private  String weather;
     private  Double  temp;
-    private  String icon;
 
-    public model_weather(int id, String weather, Double temp, String icon) {
+    public model_weather(int id, String weather, Double temp) {
         this.id = id;
         this.weather = weather;
         this.temp = temp;
-        this.icon = icon;
-    }
-
-    public String getIcon() {
-        return icon;
-    }
-
-    public void setIcon(String icon) {
-        this.icon = icon;
     }
 
     public int getId() {
