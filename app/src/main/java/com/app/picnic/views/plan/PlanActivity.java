@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.LifecycleOwner;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,20 +15,20 @@ import com.app.picnic.R;
 import com.app.picnic.databinding.ActivityPlanBinding;
 import com.app.picnic.models.model_picnic;
 
+import java.util.List;
+
 public class PlanActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ActivityPlanBinding binding= DataBindingUtil.setContentView(this,R.layout.activity_plan);
-        PlanViewModel vm_plan = new ViewModelProvider(this).get(PlanViewModel.class);
+        PlanViewModel vm_plan =new ViewModelProvider(this).get(PlanViewModel.class);
 
-        binding.setVm(vm_plan);
-//        binding.setLifecycleOwner(this);
-//        PlanRecycleAdapter planRecycleAdapter = new PlanRecycleAdapter();
-//        binding.recycler.setAdapter(planRecycleAdapter);
-//        binding.recycler.setLayoutManager(new LinearLayoutManager(this));
-//        binding.setLifecycleOwner(this);
+        PlanRecycleAdapter planRecycleAdapter = new PlanRecycleAdapter();
+        binding.recycler.setAdapter(planRecycleAdapter);
+        binding.recycler.setLayoutManager(new LinearLayoutManager(this));
+        binding.setLifecycleOwner(this);
 
         //-----------------------------------------------------------------------------------------
         binding.btRun.setOnClickListener(new View.OnClickListener() {
@@ -37,9 +38,9 @@ public class PlanActivity extends AppCompatActivity {
             }
         });
         //-----------------------------------------------------------------------------------------
-        vm_plan.model_picnicMutableLiveData.observe(this, new Observer<model_picnic>() {
+        vm_plan.get_picnics().observe(this, new Observer<List<model_picnic>>() {
             @Override
-            public void onChanged(model_picnic model_picnic) {
+            public void onChanged(List<model_picnic> model_picnics) {
 
             }
         });
