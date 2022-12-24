@@ -35,7 +35,7 @@ public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAd
         holder.tv_id.setText(list_model_weather.get(position).getId()+"");
 
 
-        holder.iv_image.setImageDrawable();
+       // holder.iv_image.setImageDrawable();
     }
     //---------------------------------------------------------------------------------------------
     @Override
