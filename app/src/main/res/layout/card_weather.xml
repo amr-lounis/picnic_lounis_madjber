@@ -17,32 +17,33 @@
             android:id="@+id/card_iv_weather"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/cloud_sun"/>
+            android:src="@mipmap/ic_launcher"/>
 
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TableRow>
+
                 <TextView
                     android:id="@+id/card_tv_weather"
-                    android:layout_width="59dp"
+                    android:layout_width="119dp"
                     android:layout_height="40sp"
                     android:layout_margin="10sp"
                     android:text="20"
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
             </TableRow>
 
             <TableRow android:layout_height="85dp">
 
                 <TextView
                     android:id="@+id/card_tv_temp"
-                    android:layout_width="wrap_content"
+                    android:layout_width="126dp"
                     android:layout_height="40sp"
                     android:layout_margin="10sp"
                     android:text="20"
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/card_tv_id"
@@ -51,7 +52,7 @@
                     android:layout_margin="10sp"
                     android:text="20"
                     android:textColor="@color/black"
-                    android:textSize="30sp" />
+                    android:textSize="20sp" />
 
             </TableRow>
         </TableLayout>

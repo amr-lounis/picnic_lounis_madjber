@@ -52,11 +52,9 @@ public class RepoWeather {
                         int id = jsonObject.getInt("id");
                         String weather = jsonObject.getString("weather");
                         Double temp = jsonObject.getDouble("temp");
-                        Double wind = jsonObject.getDouble("wind");
-                        Double visibility = jsonObject.getDouble("visibility");
-                        Double snow = jsonObject.getDouble("snow");
+                        String icon = jsonObject.getString("icon");
 
-                        model_weatherList.add(new model_weather(id, weather, temp));
+                        model_weatherList.add(new model_weather(id, weather, temp,icon));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
