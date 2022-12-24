@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -29,7 +30,12 @@ public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAd
     //---------------------------------------------------------------------------------------------
     @Override
     public void onBindViewHolder(@NonNull RecycHeolder holder, int position) {
-        holder.tv_name.setText(list_model_weather.get(position).getWeather());
+        holder.tv_weather.setText(list_model_weather.get(position).getWeather());
+        holder.tv_temp.setText(list_model_weather.get(position).getTemp()+"");
+        holder.tv_id.setText(list_model_weather.get(position).getId()+"");
+
+
+        holder.iv_image.setImageDrawable();
     }
     //---------------------------------------------------------------------------------------------
     @Override
@@ -40,22 +46,23 @@ public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAd
     public class RecycHeolder extends RecyclerView.ViewHolder {
         private final Context context;
 
-        TextView tv_name;
+        ImageView iv_image;
+        TextView tv_id;
+        TextView tv_weather;
+        TextView tv_temp;
+
         public RecycHeolder(@NonNull View itemView) {
             super(itemView);
             context = itemView.getContext();
-            tv_name = itemView.findViewById(R.id.name);
+            tv_id = itemView.findViewById(R.id.card_tv_id);
+            tv_weather= itemView.findViewById(R.id.card_tv_weather);
+            tv_temp = itemView.findViewById(R.id.card_tv_temp);
+            iv_image = itemView.findViewById(R.id.card_iv_weather);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(context,"Clicked to card ",Toast.LENGTH_SHORT).show();
-                }
-            });
-            Button b = itemView.findViewById(R.id.go);
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
                     Intent i = new Intent(context, PlanEditActivity.class);
                     context.startActivity(i);
                 }

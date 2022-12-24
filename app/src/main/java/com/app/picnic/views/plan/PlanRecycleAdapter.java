@@ -53,14 +53,14 @@ public class PlanRecycleAdapter extends RecyclerView.Adapter<PlanRecycleAdapter.
                     Toast.makeText(context,"Clicked to card ",Toast.LENGTH_SHORT).show();
                 }
             });
-            Button b = itemView.findViewById(R.id.go);
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent i = new Intent(context, PlanEditActivity.class);
-                    context.startActivity(i);
-                }
-            });
+//            Button b = itemView.findViewById(R.id.go);
+//            b.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent i = new Intent(context, PlanEditActivity.class);
+//                    context.startActivity(i);
+//                }
+//            });
         }
     }
 

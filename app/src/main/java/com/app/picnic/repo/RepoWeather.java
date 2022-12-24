@@ -56,7 +56,7 @@ public class RepoWeather {
                         Double visibility = jsonObject.getDouble("visibility");
                         Double snow = jsonObject.getDouble("snow");
 
-                        model_weatherList.add(new model_weather(id, weather, temp, wind, visibility, snow));
+                        model_weatherList.add(new model_weather(id, weather, temp));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();
