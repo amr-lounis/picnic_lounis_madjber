@@ -30,7 +30,6 @@ public class PlanEditActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         hour = calendar.get(Calendar.HOUR);
         minute = calendar.get(Calendar.MINUTE);
-//        binding.time.setText(HOUR+":"+MINUTE);
         binding.time.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

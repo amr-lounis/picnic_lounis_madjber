@@ -29,7 +29,7 @@ public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAd
     public void onBindViewHolder(@NonNull RecycHeolder holder, int position) {
         String weather = list_model_weather.get(position).getWeather();
         String temp = "temp : "+list_model_weather.get(position).getTemp()+"°";
-        String day = "day : "+list_model_weather.get(position).getId()+"°";
+        String day = "day : "+list_model_weather.get(position).getId()+"";
 
         holder.tv_weather.setText(weather);
         holder.tv_temp.setText(temp);
