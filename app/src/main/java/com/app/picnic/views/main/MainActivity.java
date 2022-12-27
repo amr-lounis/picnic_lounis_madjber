@@ -2,7 +2,9 @@ package com.app.picnic.views.main;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
+import androidx.lifecycle.Observer;
 
+import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,8 +12,13 @@ import android.widget.Toast;
 
 import com.app.picnic.R;
 import com.app.picnic.databinding.ActivityMainBinding;
+import com.app.picnic.models.model_picnic;
+import com.app.picnic.repo.RepoPicnic;
+import com.app.picnic.room.PicnicDatabase;
 import com.app.picnic.views.plan.PlanActivity;
 import com.app.picnic.views.weather.WeatherActivity;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,5 +52,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    void runn(){
+        String backupDBPath = PicnicDatabase.getInstance(getApplicationContext()).getOpenHelper().getWritableDatabase().getPath();
+        Toast.makeText(getApplicationContext(),backupDBPath,Toast.LENGTH_LONG).show();
     }
 }

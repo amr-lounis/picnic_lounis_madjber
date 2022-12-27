@@ -13,13 +13,11 @@ import java.util.List;
 
 public class WeatherViewModel extends AndroidViewModel {
     RepoWeather repoWeather ;
-    MutableLiveData<List<model_weather>> mld_weather ;
 
     public WeatherViewModel(@NonNull Application application)
     {
         super(application);
         repoWeather = new RepoWeather(application);
-        mld_weather = repoWeather.get_weathers();
     }
 
     public MutableLiveData<List<model_weather>> get_weathet(){

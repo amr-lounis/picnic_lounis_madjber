@@ -35,13 +35,16 @@ public class PlanActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(),"Plan Activity",Toast.LENGTH_LONG).show();
+//                model_picnic m = new model_picnic(binding.,1,1,"");
+//                vm_plan.add_picnic();
             }
         });
         //-----------------------------------------------------------------------------------------
         vm_plan.get_picnics().observe(this, new Observer<List<model_picnic>>() {
             @Override
             public void onChanged(List<model_picnic> model_picnics) {
-
+                planRecycleAdapter.setPicnics(model_picnics);
+                Toast.makeText(getApplicationContext(),model_picnics.size()+"",Toast.LENGTH_LONG).show();
             }
         });
         //-----------------------------------------------------------------------------------------

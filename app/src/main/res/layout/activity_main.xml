@@ -17,7 +17,7 @@
             android:id="@+id/bt_run_weather"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:text="weather"
+            android:text="create picnic"
             android:textColor="@color/black"
             android:layout_margin="20dp"/>
 
@@ -25,7 +25,7 @@
             android:id="@+id/bt_run_plan"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:text="plan"
+            android:text="list picnic"
             android:textColor="@color/black"
             android:layout_margin="20dp"/>
 
