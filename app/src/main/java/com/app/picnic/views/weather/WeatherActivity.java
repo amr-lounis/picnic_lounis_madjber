@@ -17,13 +17,14 @@ import java.util.List;
 
 
 public class WeatherActivity extends AppCompatActivity {
-
+    ActivityWeatherBinding binding;
+    WeatherViewModel vm_weather;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        ActivityWeatherBinding binding= DataBindingUtil.setContentView(this,R.layout.activity_weather);
-        WeatherViewModel vm_weather = new ViewModelProvider(this).get(WeatherViewModel.class);
+        binding= DataBindingUtil.setContentView(this,R.layout.activity_weather);
+        vm_weather = new ViewModelProvider(this).get(WeatherViewModel.class);
 
         WeatherRecycleAdapter weatherRecycleAdapter = new WeatherRecycleAdapter();
         binding.recycler.setAdapter(weatherRecycleAdapter);
@@ -48,5 +49,12 @@ public class WeatherActivity extends AppCompatActivity {
         });
         //-----------------------------------------------------------------------------------------
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        vm_weather.clear();
+        vm_weather.request();
     }
 }

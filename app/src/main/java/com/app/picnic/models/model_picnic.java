@@ -11,9 +11,21 @@ public class model_picnic {
     String destination;
     int hour ;
     int minute;
+    String date;
 
-    public model_picnic(String destination, int hour, int minute, String friends) {
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+
+
+    public model_picnic(String destination,String date, int hour, int minute, String friends) {
         this.destination = destination;
+        this.date = date;
         this.hour = hour;
         this.minute = minute;
         this.friends = friends;

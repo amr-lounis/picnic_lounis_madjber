@@ -20,9 +20,12 @@ void insertPicnic(model_picnic m);
 @Query("select * from picnic")
 LiveData<List<model_picnic> >getPicnicAll();
 
+@Query("select * from picnic WHERE id = :id ")
+model_picnic getPicnicOne(int id);
+
 @Delete
 void delete(model_picnic m);
 
-    @Query("DELETE FROM picnic WHERE id = :id")
-    void deleteById(int id);
+@Query("delete from picnic  WHERE id = :id" )
+void deleteById(int id);
 }

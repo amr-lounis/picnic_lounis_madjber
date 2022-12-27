@@ -8,6 +8,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.picnic.R;
 import com.app.picnic.models.model_picnic;
@@ -29,6 +31,12 @@ public class PlanRecycleAdapter extends RecyclerView.Adapter<PlanRecycleAdapter.
     @Override
     public void onBindViewHolder(@NonNull PlanRecycleAdapter.RecycHeolder holder, int position) {
         holder.tv_id.setText(list_model_plan.get(position).getId()+"");
+        String date = list_model_plan.get(position).getDate();
+
+        int hour = list_model_plan.get(position).getHour();
+        int minute = list_model_plan.get(position).getMinute();
+        holder.tv_date.setText(date+" hour : "+hour+":"+minute);
+
         holder.tv_name.setText(list_model_plan.get(position).getDestination());
     }
     //---------------------------------------------------------------------------------------------
@@ -40,38 +48,29 @@ public class PlanRecycleAdapter extends RecyclerView.Adapter<PlanRecycleAdapter.
     public class RecycHeolder extends RecyclerView.ViewHolder {
         private final Context context;
 
+        TextView tv_date;
         TextView tv_name;
         TextView tv_id;
         ImageButton ib_delete;
+
         public RecycHeolder(@NonNull View itemView) {
             super(itemView);
             context = itemView.getContext();
+            tv_date = itemView.findViewById(R.id.card_picnic_date);
             tv_name = itemView.findViewById(R.id.card_picnic_name);
             tv_id = itemView.findViewById(R.id.card_picnic_id);
             ib_delete = itemView.findViewById(R.id.card_picnic_delete);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Toast.makeText(context,"Clicked to card ",Toast.LENGTH_SHORT).show();
-                }
-            });
-
             ib_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-                    int id;
                     try {
-                        Toast.makeText(context,"delete by  id "+tv_id.getText().toString(),Toast.LENGTH_SHORT).show();
-                        id = Integer.parseInt(tv_id.getText().toString());
-//                        PicnicDatabase.getInstance(context.getApplicationContext()).picnicDoo().deleteById(id);
+                        int id = Integer.parseInt(tv_id.getText().toString());
+                        new RepoPicnic(context).delete(id);
                         notifyDataSetChanged();
-                    }
-                    catch (NumberFormatException e) {
-                        id = 0;
-                    }
+                    }catch (Exception e){
 
+                    }
 
                 }
             });

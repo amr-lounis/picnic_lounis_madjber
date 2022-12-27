@@ -16,26 +16,26 @@
         android:background="#BB0000"
         android:shadowRadius="30">
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PICNIC"
+            android:background="#FF0000"/>
+
         <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         tools:context=".views.plan.PlanEditActivity"
         android:orientation="vertical"
-        android:scrollbars="vertical"
-        android:background="#BBBBBB">
-
-            <Button
-                android:id="@+id/bt_ok"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="OK" />
+        android:scrollbars="vertical">
 
             <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="10dp">
+            android:layout_margin="5dp"
+            android:background="#BBBBBB">
             <TextView
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
@@ -52,12 +52,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_margin="10dp">>
+            android:layout_margin="5dp"
+            android:background="#BBBBBB">
 
             <Button
                 android:id="@+id/bt_edit_time"
                 android:layout_width="200dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:text="edit time" />
 
             <TextView
@@ -73,7 +74,8 @@
             android:layout_height="200sp"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_margin="10dp">>
+            android:background="#BBBBBB"
+            android:layout_margin="5dp">>
             <TextView
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
@@ -85,9 +87,16 @@
                 android:layout_height="match_parent"
                 android:inputType="textMultiLine"
                 android:text="1\n2\n3\n4\n5\n6" />
+
         </LinearLayout>
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/bt_ok"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OK" />
+
+        </LinearLayout>
 
 
     </LinearLayout>

@@ -70,8 +70,17 @@ public class WeatherRecycleAdapter extends RecyclerView.Adapter<WeatherRecycleAd
                 @Override
                 public void onClick(View view) {
                     Toast.makeText(context,"Clicked to card ",Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(context, PlanEditActivity.class);
-                    context.startActivity(i);
+
+                    try{
+                        String date = tv_id.getText().toString();
+                        Toast.makeText(context,"id:"+date,Toast.LENGTH_SHORT).show();
+
+                        Intent i = new Intent(context, PlanEditActivity.class);
+                        i.putExtra("date",date);
+                        context.startActivity(i);
+                    }catch (NumberFormatException e){
+                        Toast.makeText(context,"error ",Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
         }

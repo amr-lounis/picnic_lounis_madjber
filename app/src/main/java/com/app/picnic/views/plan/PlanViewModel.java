@@ -9,8 +9,10 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.app.picnic.models.model_picnic;
+import com.app.picnic.models.model_weather;
 import com.app.picnic.repo.RepoPicnic;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlanViewModel extends AndroidViewModel {
@@ -29,5 +31,7 @@ public class PlanViewModel extends AndroidViewModel {
         repoPicnic.insertAsync(m);
     }
 
-
+    public void delete_picnic(int id){
+        repoPicnic.delete(id);
+    }
 }

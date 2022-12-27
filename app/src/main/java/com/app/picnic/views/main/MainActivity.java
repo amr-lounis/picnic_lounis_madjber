@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try{
-                    Intent i = new Intent(getApplicationContext(), WeatherActivity.class);
+                    Intent i = new Intent(getBaseContext(), WeatherActivity.class);
                     startActivity(i);
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(),"error",Toast.LENGTH_LONG).show();
