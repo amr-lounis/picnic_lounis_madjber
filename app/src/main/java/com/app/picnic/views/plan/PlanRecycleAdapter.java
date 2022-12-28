@@ -6,15 +6,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
+
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
 import androidx.recyclerview.widget.RecyclerView;
 import com.app.picnic.R;
 import com.app.picnic.models.model_picnic;
 import com.app.picnic.repo.RepoPicnic;
-import com.app.picnic.room.PicnicDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +32,7 @@ public class PlanRecycleAdapter extends RecyclerView.Adapter<PlanRecycleAdapter.
 
         int hour = list_model_plan.get(position).getHour();
         int minute = list_model_plan.get(position).getMinute();
-        holder.tv_date.setText(date+" hour : "+hour+":"+minute);
+        holder.tv_date.setText(date+" - hour "+hour+":"+minute);
 
         holder.tv_name.setText(list_model_plan.get(position).getDestination());
     }

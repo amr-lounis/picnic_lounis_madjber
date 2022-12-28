@@ -86,6 +86,8 @@ public class PlanEditActivity extends AppCompatActivity {
         TimePickerDialog.OnTimeSetListener listener = new TimePickerDialog.OnTimeSetListener(){
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
+                hour = i;
+                minute = i1;
                 binding.time.setText(hour+":"+minute);
             }
         };

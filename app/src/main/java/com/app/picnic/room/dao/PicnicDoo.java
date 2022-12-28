@@ -1,4 +1,4 @@
-package com.app.picnic.room;
+package com.app.picnic.room.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;

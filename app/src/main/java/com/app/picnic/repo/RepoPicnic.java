@@ -1,15 +1,13 @@
 package com.app.picnic.repo;
 
-import android.app.Application;
 import android.content.Context;
 import android.os.AsyncTask;
-import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 
 import com.app.picnic.models.model_picnic;
-import com.app.picnic.room.PicnicDatabase;
-import com.app.picnic.room.PicnicDoo;
+import com.app.picnic.room.database.PicnicDatabase;
+import com.app.picnic.room.dao.PicnicDoo;
 
 import java.util.List;
 
